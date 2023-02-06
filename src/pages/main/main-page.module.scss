@@ -1,0 +1,7 @@
+.wrapper {
+  margin: 62px 0px;
+  display: flex;
+  @media (max-width: 769px) {
+    margin-top: 32px;
+  }
+}

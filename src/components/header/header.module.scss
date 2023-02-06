@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+  @media (max-width: 800px) {
+    display: inline-block;
+  }
+}
+
+.logoAndTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 495px;
+  width: 100%;
+  h3 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0.1px;
+    @media (max-width: 500px) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+  .burger {
+    display: none;
+  }
+  @media (max-width: 800px) {
+    img {
+      display: none;
+    }
+    .burger {
+      display: block;
+      margin-right: 24px;
+      @media (max-width: 500px) {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  p {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    margin-right: 16px;
+    letter-spacing: 0.1px;
+  }
+  img {
+    width: 58px;
+    height: 58px;
+    border-radius: 150px;
+    filter: drop-shadow(0px 2px 4px rgba(191, 196, 201, 0.2)) drop-shadow(0px 3px 4px rgba(191, 196, 201, 0.18))
+      drop-shadow(0px 1px 5px rgba(191, 196, 201, 0.24));
+  }
+  @media (max-width: 800px) {
+    display: none;
+  }
+}
