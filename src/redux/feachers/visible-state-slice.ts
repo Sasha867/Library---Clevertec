@@ -3,9 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export interface VisibleState {
   isButtonClicked: boolean;
+  isBurger: boolean;
 }
 const initialState: VisibleState = {
   isButtonClicked: true,
+  isBurger: true,
 };
 
 const visibleStateSlice = createSlice({
@@ -18,8 +20,15 @@ const visibleStateSlice = createSlice({
     setFormTile: (state) => {
       state.isButtonClicked = true;
     },
+    openBurgerMenu: (state) => {
+      state.isBurger = true;
+    },
+    closeBurgerMenu: (state) => {
+      state.isBurger = false;
+    },
   },
 });
 
-export const { setFormList, setFormTile } = visibleStateSlice.actions;
+export const { setFormList, setFormTile, openBurgerMenu, closeBurgerMenu } = visibleStateSlice.actions;
 export const visibleStateReducer = visibleStateSlice.reducer;
+

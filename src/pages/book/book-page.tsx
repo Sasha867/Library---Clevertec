@@ -6,6 +6,7 @@ import Image from '../../assets/img/BigBook.png';
 import noImage from '../../assets/img/BigNoImage.png';
 import { CardButton } from '../../components/card-button/card-button';
 import { Rating } from '../../components/rating';
+import { SwiperAdd } from '../../components/swiper/swiper';
 import { books } from '../../constans/books';
 import { elementsNav } from '../../constans/navigation-bar';
 
@@ -33,7 +34,8 @@ export const BookPage = () => {
 
           <div className={styles.wrapper}>
             <div className={styles.container}>
-              <img className={styles.bookImage} src={book.image === 'image' ? Image : noImage} alt='background book' />
+              {/* <img className={styles.bookImage} src={book.image === 'image' ? Image : noImage} alt='background book' /> */}
+              <SwiperAdd book = {book}/>
               <div className={styles.characteristics}>
                 <h3 className={styles.mainTitle}>{book.title}</h3>
                 <p className={styles.author}>{book.author}</p>

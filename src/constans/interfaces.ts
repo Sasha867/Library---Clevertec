@@ -1,6 +1,6 @@
 export interface BookItem {
   id: number;
-  image: string;
+  image: string[];
   stars: number;
   category: string;
   title: string;

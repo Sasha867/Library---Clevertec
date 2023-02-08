@@ -3,7 +3,7 @@ export const elementsNav = [
     title: 'Витрина книг',
     id: 'books',
     categories: [
-      { title: 'Все книги', id: 'all Books' },
+      { title: 'Все книги', id: 'all_books' },
       { title: 'Бизнес-книги', id: 'business', amount: 14 },
       { title: 'Детективы', id: 'detectives', amount: 8 },
       { title: 'Детские книги', id: 'children_books', amount: 14 },

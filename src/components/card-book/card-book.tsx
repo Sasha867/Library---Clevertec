@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import imageBook from '../../assets/img/imageBook.png';
-import Noimage from '../../assets/img/NoImageBook.png';
+import noImage from '../../assets/img/NoImageBook.png';
 import { BookItem } from '../../constans/interfaces';
 import { getButtonCondition } from '../../redux/selectors/selectors';
 import { CardButton } from '../card-button/card-button';
@@ -29,7 +29,8 @@ export const CardBook = ({ book }: Props) => {
       onClick={openUserBook}
       className={`${listForm ? styles.wrapper : styles.listContainer}`}
     >
-      <img className={styles.cardImage} src={book.image === 'image' ? imageBook : Noimage} alt='background' />
+      <img className={styles.cardImage} src={book.image[0] === 'image' ? imageBook : noImage} alt='background' />
+      
       <div className={styles.ratingWrapper}>
         {listForm && <Rating book={book} />}
         <h4 className={styles.title}>{book.title}</h4>

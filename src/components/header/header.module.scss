@@ -23,15 +23,13 @@
       line-height: 28px;
     }
   }
-  .burger {
-    display: none;
-  }
+
   @media (max-width: 800px) {
     img {
       display: none;
     }
-    .burger {
-      display: block;
+    .burgerBar {
+      display: flex;
       margin-right: 24px;
       @media (max-width: 500px) {
         width: 24px;
@@ -60,5 +58,10 @@
   }
   @media (max-width: 800px) {
     display: none;
+  }
+}
+@media (max-width: 800px) {
+  .burgerBar {
+    display: flex;
   }
 }

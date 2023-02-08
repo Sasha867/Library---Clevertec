@@ -27,13 +27,30 @@
   padding-top: 18px;
 }
 .start {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 255px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-image: linear-gradient(to right, #f83600, #f9d423 297.76%) 1;
-  padding: 6px 0 ;
+  padding: 6px 0;
+  &:after {
+    margin-right: 12px;
+    display: block;
+    content: '';
+    background-image: url('../../assets/icons/Icon_dropdown.svg');
+    width: 24px;
+    height: 24px;
+  }
 }
+
+.start1 {
+  &:after {
+    background-image: url('../../assets/icons/Icon_dropUp.svg');
+  }
+}
+
 .amount {
   font-size: 14px;
   color: #a7a7a7;

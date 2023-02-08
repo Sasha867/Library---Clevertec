@@ -1,0 +1,83 @@
+.burgerBar {
+  display: none;
+  // display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  gap: 6px;
+  // padding: 6px;
+  cursor: pointer;
+
+  // span {
+  //   position: absolute;
+  //   top: 8px;
+  //   width: 90%;
+  //   height: 2.70px;
+  //   margin-top: 6px;
+  //   z-index: 15;
+  //   background: #363636;
+  // }
+
+  @media (max-width: 768px) {
+    display: flex;
+    margin-right: 24px;
+  }
+  @media (max-width: 500px) {
+    width: 24px;
+    height: 24px;
+    gap: 4px;
+    .closeLine1 {
+      transform: rotate(-45deg) translate(-3px, 5px);
+      transition: all 0.5s;
+    }
+    .closeLine3 {
+      transform: rotate(45deg) translate(-3.5px, -6.5px);
+      transition: all 0.5s;
+    }
+  }
+}
+.barLine {
+  width: 80%;
+  height: 2.7px;
+  border-radius: 2px;
+  background: #363636;
+  transition: 0.5s;
+}
+
+.closeLine1 {
+  transform: rotate(-45deg) translate(-8px, 4px);
+  background: linear-gradient(231.58deg, #f83600 -53.35%, #f9d423 297.76%);
+  transition: all 0.5s;
+}
+
+.closeLine2 {
+  opacity: 0;
+}
+
+.closeLine3 {
+  transform: rotate(45deg) translate(-8px, -5.5px);
+  background: linear-gradient(231.58deg, #f83600 -53.35%, #f9d423 297.76%);
+  transition: all 0.5s;
+}
+
+// .burgerBar:before{
+//   content: '';
+//   position: absolute;
+//   top: 5px;
+//   width: 90%;
+//   background: #363636;
+//   height: 2.70px;
+// }
+
+// .burgerBar:after{
+//   content: '';
+//   position: absolute;
+//   bottom: 6px;
+//   width: 90%;
+//   background: #363636;
+//   height: 2.70px;
+// }
+// transition: all 0.4s ease-out;
