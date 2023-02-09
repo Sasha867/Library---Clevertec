@@ -18,9 +18,11 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <div className='wrapper'>
-        <Header />
         <HashRouter>
+          <Header />
           <Routes>
+            <Route path='/register/:id' element={<MainPage />} />
+            <Route path='/user/:id' element={<MainPage />} />
             <Route path='/docs/:id' element={<OfferPage />} />
             <Route path='/books/:category/:id' element={<BookPage />} />
             <Route path='/' element={<Navigate to='/books/all' />} />

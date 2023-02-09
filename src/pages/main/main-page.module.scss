@@ -1,7 +1,10 @@
 .wrapper {
   margin: 62px 0px;
   display: flex;
-  @media (max-width: 769px) {
+  @media (max-width: 768px) {
     margin-top: 32px;
+    .navWrapper{
+      display: none;
+    }
   }
 }

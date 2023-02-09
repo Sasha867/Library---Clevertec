@@ -2,8 +2,8 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import avatarRating from '../../assets/img/avatarRating.png';
-import Image from '../../assets/img/BigBook.png';
-import noImage from '../../assets/img/BigNoImage.png';
+// import Image from '../../assets/img/BigBook.png';
+// import noImage from '../../assets/img/BigNoImage.png';
 import { CardButton } from '../../components/card-button/card-button';
 import { Rating } from '../../components/rating';
 import { SwiperAdd } from '../../components/swiper/swiper';

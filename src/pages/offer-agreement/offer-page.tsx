@@ -9,7 +9,7 @@ export const OfferPage = () => {
 
   return (
     <section className={styles.wrapper}>
-      <NavigationBar />
+      <NavigationBar isMobile = {false} />
       <div className={styles.container}>
         {id === 'rules' ? (
           <h3 className={styles.title}>Правила пользования</h3>

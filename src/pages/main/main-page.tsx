@@ -6,7 +6,9 @@ import styles from './main-page.module.scss';
 export const MainPage = () => (
   <main>
     <div className={styles.wrapper}>
-      <NavigationBar />
+      <div className={styles.navWrapper}>
+        <NavigationBar isMobile = {false} />
+      </div>
       <BooksList />
     </div>
   </main>

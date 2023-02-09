@@ -5,7 +5,11 @@ import { elementsNav } from '../../constans/navigation-bar';
 
 import styles from './navigation-bar.module.scss';
 
-export const NavigationBar = () => {
+type Props = {
+  isMobile: boolean;
+};
+
+export const NavigationBar = ({ isMobile }: Props) => {
   const [isOpenNavBar, setIsOpenNavBar] = useState(false);
 
   function handleNavBar(e: SyntheticEvent, index: number) {
@@ -16,19 +20,19 @@ export const NavigationBar = () => {
   }
 
   return (
-    <div className={styles.wrapper}>
+    <div className={`${isMobile ? styles.wrapperMobile : styles.wrapperDesktop}`}>
       <ul>
         {elementsNav.map((elNav, index) => (
-          <li key={elNav.id}>
+          <li key={new Date().getTime() + elNav.id}>
             <NavLink
               onClick={(e) => {
                 handleNavBar(e, index);
               }}
               to={`/${elNav.id}`}
               className={({ isActive }) =>
-                `${isActive ? styles.active : ''} ${styles.navLink} ${index === 0 ? styles.start : ''} ${
-                  isOpenNavBar ? styles.start1 : ''
-                }`
+                `${isActive ? styles.active : ''} ${styles.navLink} ${isActive ? styles.start : ''} ${
+                  index === 0 ? styles.dropUp : ''
+                } ${isOpenNavBar ? styles.dropDown : ''}`
               }
             >
               {elNav.title}
@@ -36,7 +40,7 @@ export const NavigationBar = () => {
             {isOpenNavBar && (
               <ul>
                 {elNav.categories?.map((elCategories) => (
-                  <li key={elCategories.id}>
+                  <li key={new Date().getTime() + elCategories.id}>
                     <NavLink
                       className={({ isActive }) => `${isActive ? styles.active : ''} ${styles.categoriesLink} `}
                       to={`/${elNav.id}/${elCategories.id}`}

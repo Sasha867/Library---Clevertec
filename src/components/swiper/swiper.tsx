@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 // import required modules
-import { FreeMode, Navigation, Thumbs } from 'swiper';
+import { FreeMode, Navigation, Pagination, Thumbs } from 'swiper';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -20,7 +20,7 @@ type Props = {
 };
 
 export const SwiperAdd = ({ book }: Props) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
   return (
     <React.Fragment>
@@ -29,11 +29,11 @@ export const SwiperAdd = ({ book }: Props) => {
         //   '--swiper-navigation-color': '#fff',
         //   '--swiper-pagination-color': '#fff',
         // }}
-        // thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed() ? thumbsSwiper : null }}
+        thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
         spaceBetween={10}
         navigation={true}
-        thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Navigation, Thumbs]}
+        // thumbs={{ swiper: thumbsSwiper }}
+        modules={[FreeMode, Navigation, Pagination, Thumbs]}
         className='mySwiper2'
       >
         {book.image.map((url) => (
@@ -44,7 +44,7 @@ export const SwiperAdd = ({ book }: Props) => {
       </Swiper>
       <Swiper
      
-        // onSwiper={setThumbsSwiper}
+        onSwiper={setThumbsSwiper}
         spaceBetween={10}
         slidesPerView={4}
         freeMode={true}
