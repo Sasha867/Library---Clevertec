@@ -1,5 +1,5 @@
 import { SyntheticEvent, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import { elementsNav } from '../../constans/navigation-bar';
 
@@ -11,6 +11,7 @@ type Props = {
 
 export const NavigationBar = ({ isMobile }: Props) => {
   const [isOpenNavBar, setIsOpenNavBar] = useState(false);
+  const location = useLocation;
 
   function handleNavBar(e: SyntheticEvent, index: number) {
     if (index === 0) {
@@ -25,6 +26,7 @@ export const NavigationBar = ({ isMobile }: Props) => {
         {elementsNav.map((elNav, index) => (
           <li  key={new Date().getTime() + elNav.id}>
             <NavLink id={elNav.id}
+            data-test-id = {elNav.test}
               onClick={(e) => {
                 handleNavBar(e, index);
               }}
