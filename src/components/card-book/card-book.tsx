@@ -29,8 +29,8 @@ export const CardBook = ({ book }: Props) => {
       onClick={openUserBook}
       className={`${listForm ? styles.wrapper : styles.listContainer}`}
     >
-      <img className={styles.cardImage} src={book.image[0] === 'image' ? imageBook : noImage} alt='background' />
-      
+      <img className={styles.cardImage} src={book.image[0] ? imageBook : noImage} alt='background' />
+
       <div className={styles.ratingWrapper}>
         {listForm && <Rating book={book} />}
         <h4 className={styles.title}>{book.title}</h4>

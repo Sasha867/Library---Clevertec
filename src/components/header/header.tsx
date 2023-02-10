@@ -1,5 +1,5 @@
-// import burger from '../../assets/icons/burger.svg';
 import { SyntheticEvent, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import logoImg from '../../assets/icons/logo.svg';
 import { user } from '../../constans/books';
@@ -15,8 +15,14 @@ export const Header = () => {
     setIsOpen(!isOpen);
   }
 
-  function closeNavMobile({ target }: any): void {
-    if (target.id === 'navOpen') {
+  function closeNavMobile(e: SyntheticEvent): void {
+   
+    const {target} = e;
+
+    console.log(target);
+
+
+    if (e.target) {
       toggleMenuMode();
     }
   }
@@ -25,7 +31,9 @@ export const Header = () => {
     <header>
       <div className={styles.container}>
         <div className={styles.logoAndTitle}>
-          <img src={logoImg} alt='logo-clevertec-company' />
+          <Link to='/'>
+            <img src={logoImg} alt='logo-clevertec-company' />
+          </Link>
           <Burger
             toggleMenuMode={() => {
               toggleMenuMode();
@@ -34,10 +42,11 @@ export const Header = () => {
           />
 
           <div
+            data-test-id='burger-navigation'
             id='navOpen'
             role='presentation'
-            onClick={({ target }) => {
-              closeNavMobile({ target });
+            onClick={(e) => {
+              closeNavMobile(e);
             }}
             className={`${isOpen ? styles.navWrapperOpen : ''} ${styles.navWrapper}`}
           >

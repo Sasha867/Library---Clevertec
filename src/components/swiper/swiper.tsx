@@ -1,63 +1,69 @@
-import React, { useRef, useState } from 'react';
-// import required modules
-import { FreeMode, Navigation, Pagination, Thumbs } from 'swiper';
-// Import Swiper React components
+import { useState } from 'react';
+import { FreeMode, Navigation, Pagination, Scrollbar, Thumbs } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import noImage from '../../assets/img/BigNoImage.png';
 import { BookItem } from '../../constans/interfaces';
-import { getImage } from '../../utils/utils';
 
 import styles from './swiper.module.scss';
 
-// Import Swiper styles
 import 'swiper/scss';
 import 'swiper/scss/free-mode';
 import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
 import 'swiper/scss/thumbs';
+import 'swiper/scss/effect-coverflow';
+import 'swiper/scss/scrollbar';
 
-type Props = {
+interface Props {
   book: BookItem;
-};
+}
 
 export const SwiperAdd = ({ book }: Props) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
   return (
-    <React.Fragment>
+    <div className={styles.wrapper}>
       <Swiper
-        // style={{
-        //   '--swiper-navigation-color': '#fff',
-        //   '--swiper-pagination-color': '#fff',
-        // }}
+        data-test-id='slide-big'
+        loop={true}
         thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-        spaceBetween={10}
-        navigation={true}
-        // thumbs={{ swiper: thumbsSwiper }}
+        pagination={true}
         modules={[FreeMode, Navigation, Pagination, Thumbs]}
-        className='mySwiper2'
+        className={styles.main}
       >
-        {book.image.map((url) => (
-          <SwiperSlide key={new Date().getTime() + url}>
-            <img src={getImage(url)} alt='book_image' />
+        {book.image.map((img, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <SwiperSlide key={index}>
+            <img className={styles.mainImg} src={img || noImage} alt='image_book' />
           </SwiperSlide>
         ))}
       </Swiper>
-      <Swiper
-     
-        onSwiper={setThumbsSwiper}
-        spaceBetween={10}
-        slidesPerView={4}
-        freeMode={true}
-        watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className='mySwiper'
-      >
-        {book.image.map((url) => (
-          <SwiperSlide key={new Date().getTime() + url}>
-            <img src={getImage(url)} alt='book_image' />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </React.Fragment>
+      {book.image.length > 1 && (
+        <div className={styles.pagination}>
+          <Swiper
+            data-test-id='slide-mini'
+            onSwiper={setThumbsSwiper}
+            loop={true}
+            spaceBetween={10}
+            slidesPerView={5}
+            freeMode={true}
+            scrollbar={true}
+            watchSlidesProgress={true}
+            modules={[FreeMode, Navigation, Scrollbar, Thumbs]}
+            className={styles.less}
+          >
+            {book.image.map((img, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <SwiperSlide key={index}>
+                <img className={styles.lessImg} src={img || noImage} alt='img_book' />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <span className={styles.blur} />
+          <span className={styles.blur} />
+        </div>
+      )}
+    </div>
   );
 };

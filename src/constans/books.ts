@@ -1,4 +1,5 @@
 import avatarIcon from '../assets/img/avatar.png';
+import image from '../assets/img/BigBook.png'
 
 import { BookItem, User } from './interfaces';
 
@@ -19,7 +20,7 @@ export const books: BookItem[] = [
   },
   {
     id: 2,
-    image: ['image'],
+    image: [image],
     stars: 4,
     category: 'business',
     title: 'Грокаем алгоритмы. Иллюстрированное',
@@ -28,7 +29,7 @@ export const books: BookItem[] = [
   },
   {
     id: 3,
-    image: ['image', 'image', 'image', 'image'],
+    image: [image, image, image, image, image],
     category: 'business',
     stars: 4,
     title: 'Грокаем алгоритмы.',
@@ -38,7 +39,7 @@ export const books: BookItem[] = [
   },
   {
     id: 4,
-    image: ['image'],
+    image: [image],
     category: 'business',
     stars: 4,
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
@@ -47,7 +48,7 @@ export const books: BookItem[] = [
   },
   {
     id: 5,
-    image: ['image'],
+    image: [image],
     category: 'business',
     stars: 4,
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
@@ -67,7 +68,7 @@ export const books: BookItem[] = [
   },
   {
     id: 7,
-    image: ['image'],
+    image: [image],
     category: 'business',
     stars: 4,
     title: 'Грокаем алгоритмы.',
@@ -76,7 +77,7 @@ export const books: BookItem[] = [
   },
   {
     id: 8,
-    image: ['image'],
+    image: [image],
     category: 'business',
     stars: 4,
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',
@@ -85,7 +86,7 @@ export const books: BookItem[] = [
   },
   {
     id: 9,
-    image: ['image'],
+    image: [image],
     category: 'business',
     stars: 4,
     title: 'Грокаем алгоритмы. Иллюстрированное пособие для програ...',

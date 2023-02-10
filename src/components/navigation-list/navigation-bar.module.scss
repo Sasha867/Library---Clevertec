@@ -10,15 +10,17 @@
 }
 
 .wrapperMobile {
-  width: 50%;
+  max-width: 255px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  // padding: 32px 0px 28px 32px;
+  padding: 32px 0px 28px 32px;
   @media (max-width: 650px) {
     width: 70%;
   }
   @media (max-width: 450px) {
     width: 100%;
+    padding: 14px 0px 28px 16px ;
   }
 }
 

@@ -23,8 +23,8 @@ export const NavigationBar = ({ isMobile }: Props) => {
     <div className={`${isMobile ? styles.wrapperMobile : styles.wrapperDesktop}`}>
       <ul>
         {elementsNav.map((elNav, index) => (
-          <li key={new Date().getTime() + elNav.id}>
-            <NavLink
+          <li  key={new Date().getTime() + elNav.id}>
+            <NavLink id={elNav.id}
               onClick={(e) => {
                 handleNavBar(e, index);
               }}
