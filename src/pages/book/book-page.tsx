@@ -153,7 +153,7 @@ export const BookPage = () => {
                 </div>
               </div>
             )}
-            <button type='button'>оценить книгу</button>
+            <button className={styles.btnReviews} type='button'>оценить книгу</button>
           </div>
         </React.Fragment>
       )}

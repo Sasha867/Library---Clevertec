@@ -4,6 +4,9 @@
   margin: 42px auto;
   display: flex;
   flex-direction: column;
+  @media (max-width: 320px) {
+    margin: 20px auto;
+  }
 }
 
 .container {
@@ -180,6 +183,7 @@
   .textWrapper {
     max-width: 730px;
     margin-top: 19px;
+    margin-bottom: 20px;
     .text {
       font-weight: 400;
       font-size: 16px;
@@ -225,7 +229,7 @@
   font-weight: 700;
   font-size: 18px;
   width: 350px;
-  padding-bottom: 16px;
+  padding-bottom: 4px;
   margin-bottom: 16px;
   margin-top: 62px;
 
@@ -257,8 +261,32 @@
   }
 }
 
-.line{
+.line {
   border-bottom: 1px solid #ebebeb;
+}
+
+.btnReviews {
+  padding: 11px 23px;
+  background: linear-gradient(231.58deg, #f83600 -53.35%, #f9d423 297.76%);
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  max-width: 350px;
+  margin-top: 22px;
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+  @media (max-width: 320px) {
+    font-size: 12px;
+    margin-top: 0px;
+  }
 }
 
 .minDescr {
