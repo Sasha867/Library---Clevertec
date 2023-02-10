@@ -28,6 +28,9 @@
       @media (max-width: 768px) {
         justify-content: flex-start;
         row-gap: 16px;
+        @media (max-width: 456px) {
+          justify-content: center;
+        }
       }
     }
   }

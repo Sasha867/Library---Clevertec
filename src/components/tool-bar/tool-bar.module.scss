@@ -1,10 +1,34 @@
 .wrapper {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 16px;
   margin-bottom: 32px;
+  // .searchContainer {
+  //   display: flex;
+  //   width: 100%;
+  //   justify-content: flex-start;
+  //   align-items: center;
+  //   gap: 16px;
+  //   margin-bottom: 32px;
+  .btnCloseMobileSearch {
+    position: absolute;
+    display: block;
+    border: none;
+    top: 50%;
+    transform: translate(0, -50%);
+    background: none;
+    right: 12px;
+    z-index: 8;
+    img {
+      border: none;
+    }
+    @media (min-width: 461px) {
+      display: none;
+    }
+  }
   .search {
     padding: 10px 16px 10px 40px;
     font-weight: 400;
@@ -16,13 +40,29 @@
     color: #a7a7a7;
     background: #ffffff;
     border: none;
-    border-radius: 599px;
+    border-radius: 50px;
     background: no-repeat url('../../assets/icons/Icon_search.svg');
     background-position: 16px 11px;
     text-align: center;
     box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18),
       0px 1px 5px rgba(191, 196, 201, 0.24);
     @media (max-width: 460px) {
+      display: none;
+    }
+  }
+  
+
+  .searchMobilesize {
+    position: absolute;
+    top: 0;
+    display: block;
+    transform: translateX(0);
+    transition: 0.1s;
+    max-width: 450px;
+    text-align: left;
+    background: #ffffff;
+    z-index: 7;
+    @media (min-width: 461px) {
       display: none;
     }
   }
@@ -33,6 +73,7 @@
     padding: 0;
     height: 32px;
     width: 32px;
+    min-width: 32px;
     @media (max-width: 460px) {
       display: block;
     }
@@ -40,7 +81,7 @@
   .sortBtn {
     display: block;
     background: #ffffff;
-    border-radius: 599px;
+    border-radius: 50px;
     font-size: 14px;
     color: #a7a7a7;
     background: no-repeat url('../../assets/icons/Icon_Action.svg');
@@ -67,36 +108,56 @@
       display: block;
     }
   }
-  .btnTileForm {
-    min-width: 38px;
-    min-height: 38px;
-    border: none;
-    margin-left: auto;
-    background-size: 100% 100%;
-    background: no-repeat center/100% url('../../assets/icons/button_tile.svg');
-    filter: drop-shadow(0px 2px 4px rgba(191, 196, 201, 0.2)) drop-shadow(0px 3px 4px rgba(191, 196, 201, 0.18))
-      drop-shadow(0px 1px 5px rgba(191, 196, 201, 0.24));
-    &.active {
-      background: no-repeat center/100% url('../../assets/icons/button_tile_active.svg');
+
+  .btnViewContauner {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .btnTileForm {
+      min-width: 38px;
+      min-height: 38px;
+      border: none;
+      margin-left: auto;
+      background-size: 100% 100%;
+      background: no-repeat center/100% url('../../assets/icons/button_tile.svg');
+      filter: drop-shadow(0px 2px 4px rgba(191, 196, 201, 0.2)) drop-shadow(0px 3px 4px rgba(191, 196, 201, 0.18))
+        drop-shadow(0px 1px 5px rgba(191, 196, 201, 0.24));
+      &.active {
+        background: no-repeat center/100% url('../../assets/icons/button_tile_active.svg');
+      }
+    }
+    .btnListForm {
+      min-width: 38px;
+      min-height: 38px;
+      border: none;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background: center/100% url('../../assets/icons/button_list.svg');
+      filter: drop-shadow(0px 2px 4px rgba(191, 196, 201, 0.2)) drop-shadow(0px 3px 4px rgba(191, 196, 201, 0.18))
+        drop-shadow(0px 1px 5px rgba(191, 196, 201, 0.24));
+      &.active {
+        background: center/100% url('../../assets/icons/button_list_active.svg');
+      }
     }
   }
-  .btnListForm {
-    min-width: 38px;
-    min-height: 38px;
-    border: none;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background: center/100% url('../../assets/icons/button_list.svg');
-    filter: drop-shadow(0px 2px 4px rgba(191, 196, 201, 0.2)) drop-shadow(0px 3px 4px rgba(191, 196, 201, 0.18))
-      drop-shadow(0px 1px 5px rgba(191, 196, 201, 0.24));
-    &.active {
-      background: center/100% url('../../assets/icons/button_list_active.svg');
-    }
-  }
+
   .btnActive {
     background: linear-gradient(231.58deg, #f83600 -53.35%, #f9d423 297.76%);
   }
 }
+
+.mobileSizeWrapper{
+
+  @media(min-width: 461px){
+     display: none;
+  }
+}
+
 .search:focus {
   outline: none;
+}
+
+.switchOff {
+  display: none;
 }

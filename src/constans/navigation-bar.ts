@@ -2,9 +2,9 @@ export const elementsNav = [
   {
     title: 'Витрина книг',
     id: 'books',
-    test: 'navigation-showcase',
+    test: 'showcase',
     categories: [
-      { title: 'Все книги', id: 'all_books' },
+      { title: 'Все книги', id: 'all_books', test: 'books' },
       { title: 'Бизнес-книги', id: 'business', amount: 14 },
       { title: 'Детективы', id: 'detectives', amount: 8 },
       { title: 'Детские книги', id: 'children_books', amount: 14 },
@@ -24,11 +24,11 @@ export const elementsNav = [
   {
     title: 'Правила Пользования',
     id: 'docs/rules',
-    test: 'navigation-terms',
+    test: 'terms',
   },
   {
     title: 'Договор оферты',
     id: 'docs/offer-page',
-    test: 'navigation-contract',
+    test: 'contract',
   },
 ];
