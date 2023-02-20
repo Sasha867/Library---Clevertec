@@ -7,7 +7,7 @@ export const MainPage = () => (
   <main>
     <div className={styles.wrapper}>
       <div className={styles.navWrapper}>
-        <NavigationBar isMobile = {false} booksRef={null} />
+        <NavigationBar isMobile={false} booksRef={null} />
       </div>
       <BooksList />
     </div>

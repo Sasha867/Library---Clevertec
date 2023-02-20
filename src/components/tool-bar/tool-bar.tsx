@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import button from '../../assets/icons/closeBtnSearchMobile.svg';
-import { setFormList, setFormTile } from '../../redux/feachers/visible-state-slice';
+import { setFormList, setFormTile } from '../../redux/features/visible-state-slice';
 import { getButtonCondition } from '../../redux/selectors/selectors';
 
 import styles from './tool-bar.module.scss';
@@ -13,8 +13,6 @@ export const ToolBar = () => {
   const isToggle = useSelector(getButtonCondition);
   const searchBtnClasses = `${styles.btnSearch} ${styles.search}`;
   const raitingBtnClasses = `${styles.sortBtn} ${styles.btnRatingSmall}`;
-
-  console.log(isOpenSerch);
 
   const handleClickIsOpenSearch = () => setIsOpenSearch(!isOpenSerch);
 

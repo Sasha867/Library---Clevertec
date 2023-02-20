@@ -1,9 +1,7 @@
-import { MutableRefObject, SyntheticEvent, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { SyntheticEvent, useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
 import { elementsNav } from '../../constans/navigation-bar';
-import { getNavBarState } from '../../redux/selectors/selectors';
 
 import styles from './navigation-bar.module.scss';
 
@@ -14,8 +12,6 @@ type Props = {
 
 export const NavigationBar = ({ isMobile, booksRef }: Props) => {
   const [isOpenNavBar, setIsOpenNavBar] = useState(true);
-  const dispatch = useDispatch();
-  const isNavBar = useSelector(getNavBarState);
 
   const prefix = isMobile ? 'burger-' : 'navigation-';
   const location = useLocation();

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import logoImg from '../../assets/icons/logo.svg';
-import { user } from '../../constans/books';
+import avatarIcon from '../../assets/img/avatar.png';
 import { Burger } from '../burger-menu';
 import { NavigationBar } from '../navigation-list';
 
@@ -67,8 +67,8 @@ export const Header = () => {
           <h3>Библиотека</h3>
         </div>
         <div className={styles.user}>
-          <p>Привет, {user.name}</p>
-          <img src={user.avatar} alt='user-avatar' />
+          <p>Привет, Иван</p>
+          <img src={avatarIcon} alt='user-avatar' />
         </div>
       </div>
     </header>

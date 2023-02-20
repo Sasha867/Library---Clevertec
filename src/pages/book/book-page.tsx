@@ -1,24 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 
 import avatarRating from '../../assets/img/avatarRating.png';
 import { CardButton } from '../../components/card-button/card-button';
 import { Rating } from '../../components/rating';
 import { SwiperAdd } from '../../components/swiper/swiper';
-import { books } from '../../constans/books';
 import { elementsNav } from '../../constans/navigation-bar';
+import { getChoiceBook } from '../../redux/features/choice-book';
+import { getChoiceBookState } from '../../redux/selectors/selectors';
+import { useAppDispatch } from '../../redux/store';
 
 import styles from './book-page.module.scss';
 
 export const BookPage = () => {
   const [isReviews, setIsReviews] = useState(false);
+  const dispatch = useAppDispatch();
+  const book = useSelector(getChoiceBookState);
 
   function handleToggleReviews() {
     setIsReviews(!isReviews);
   }
   const { id } = useParams();
 
-  const book = books.find((elBook) => elBook.id.toString() === id);
+  useEffect(() => {
+    if (id) {
+      dispatch(getChoiceBook(id));
+    } else {
+      console.log(Error);
+    }
+  }, [dispatch, id]);
 
   return (
     <div>
@@ -27,10 +38,10 @@ export const BookPage = () => {
           <div className={styles.breadCrumbs}>
             <nav>
               <p>
-                <Link to={`/books/${book.category}`}>
-                  {elementsNav[0].categories?.find((el) => el.id === book.category)?.title}
+                <Link to={`/books/${book.choiceBook?.categories[0]}`}>
+                  {elementsNav[0].categories?.find((el) => el.id === book.choiceBook?.categories[0])?.title}
                 </Link>{' '}
-                / <span>{book.title}</span>
+                / <span>{book.choiceBook?.title}</span>
               </p>
             </nav>
           </div>
@@ -39,10 +50,16 @@ export const BookPage = () => {
             <div className={styles.container}>
               <SwiperAdd book={book} />
               <div className={styles.characteristics}>
-                <h3 className={styles.mainTitle}>{book.title}</h3>
-                <p className={styles.author}>{book.author}</p>
+                <h3 className={styles.mainTitle}>{book.choiceBook?.title}</h3>
+                {book.choiceBook?.authors.length &&
+                  book.choiceBook.authors.map((author) => (
+                    <p key={book.choiceBook?.id} className={styles.author}>
+                      {author}
+                    </p>
+                  ))}
+                {/* <p className={styles.author}>{book.choiceBook}</p> */}
                 <div className={styles.cardBtn}>
-                  <CardButton reserve={book.reserve} data={book.data} />
+                  {book.choiceBook && <CardButton booking={book.choiceBook?.booking} />}
                 </div>
                 <p className={`${styles.text} ${styles.descr}`}>
                   <span>О книге</span>
@@ -69,9 +86,7 @@ export const BookPage = () => {
             <div className={styles.reviewsWrapper}>
               <div className={styles.rating}>
                 <p className={styles.title}>Рейтинг</p>
-                <div className={styles.stars}>
-                  <Rating book={book} />
-                </div>
+                <div className={styles.stars}>{book.choiceBook && <Rating book={book.choiceBook} />}</div>
               </div>
             </div>
             <p className={styles.title}>Подробная информация</p>
@@ -153,7 +168,9 @@ export const BookPage = () => {
                 </div>
               </div>
             )}
-            <button className={styles.btnReviews} type='button'>оценить книгу</button>
+            <button className={styles.btnReviews} type='button'>
+              оценить книгу
+            </button>
           </div>
         </React.Fragment>
       )}

@@ -1,11 +1,11 @@
 import raitingIcon from '../../assets/icons/Star.svg';
 import raitingIconEmpty from '../../assets/icons/Star_empty.svg';
-import { BookItem } from '../../constans/interfaces';
+import { BookItem, ChoiceBook } from '../../constans/interfaces';
 
 import styles from './rating.module.scss';
 
 type Props = {
-  book: BookItem;
+  book: ChoiceBook | BookItem;
 };
 
 export const Rating = ({ book }: Props) => {
@@ -13,13 +13,13 @@ export const Rating = ({ book }: Props) => {
 
   return (
     <div className={styles.ratingContainer}>
-      {book.stars === 0 ? (
+      {book.rating === 0 ? (
         <span>ещё нет оценок</span>
       ) : (
         <div className={styles.rating}>
           {stars.map((star) => (
             <div key={star}>
-              {book.stars < star ? (
+              {book && book.rating < star ? (
                 <img src={raitingIconEmpty} alt='emptyStar' />
               ) : (
                 <img src={raitingIcon} alt='emptyStar' />

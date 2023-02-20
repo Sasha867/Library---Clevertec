@@ -1,12 +1,16 @@
 import { useDispatch } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 
-import { visibleStateReducer } from './feachers/visible-state-slice';
+import { cardsBooksReducer } from './features/cards-books';
+import { bookReducer } from './features/choice-book';
+import { visibleStateReducer } from './features/visible-state-slice';
 
 export const useAppDispatch = () => useDispatch<typeof store.dispatch>();
 export const store = configureStore({
   reducer: {
-    visibleStateReducer,
+    visibleState: visibleStateReducer,
+    cardsBooksState: cardsBooksReducer,
+    bookState: bookReducer,
   },
 });
 

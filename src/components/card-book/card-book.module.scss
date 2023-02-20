@@ -10,7 +10,8 @@
   padding: 8px 8px 16px 8px;
   .cardImage {
     cursor: pointer;
-    max-height: 242px;
+    height: 242px;
+    max-width: 100% ;
     margin-bottom: 16px;
   }
   @media (max-width: 320px) {

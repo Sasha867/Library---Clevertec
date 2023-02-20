@@ -1,12 +1,13 @@
+import { Booking } from '../../constans/interfaces';
+
 import styles from './card-button.module.scss';
 
 type Props = {
-  reserve: boolean;
-  data?: string;
+  booking: Booking;
 };
 
-export const CardButton = ({ reserve, data }: Props) => (
-  <button className={`${styles.cardBtn} ${reserve ? styles.reserved : ''}`} type='button'>
-    {reserve ? `Занята до ${data}` : 'Забронировать'}
+export const CardButton = ({ booking }: Props) => (
+  <button className={`${styles.cardBtn} ${booking ? styles.reserved : ''}`} type='button'>
+    {booking ? `Занята до ${booking.dateOrder}` : 'Забронировать'}
   </button>
 );

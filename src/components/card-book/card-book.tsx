@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-import imageBook from '../../assets/img/imageBook.png';
+// import imageBook from '../../assets/img/imageBook.png';
 import noImage from '../../assets/img/NoImageBook.png';
-import { BookItem } from '../../constans/interfaces';
+import { host } from '../../constans/books-api';
+import { BookItem, ChoiceBook } from '../../constans/interfaces';
 import { getButtonCondition } from '../../redux/selectors/selectors';
 import { CardButton } from '../card-button/card-button';
 import { Rating } from '../rating';
@@ -11,16 +12,15 @@ import { Rating } from '../rating';
 import styles from './card-book.module.scss';
 
 type Props = {
-  book: BookItem;
+  book: ChoiceBook | BookItem;
 };
 
 export const CardBook = ({ book }: Props) => {
+  const { category } = useParams();
   const navigate = useNavigate();
   const listForm = useSelector(getButtonCondition);
 
-  function openUserBook() {
-    navigate(`/books/${book.category}/${book.id}`);
-  }
+  const openUserBook = () => navigate(`/books/${category}/${book.id}`);
 
   return (
     <div
@@ -29,21 +29,27 @@ export const CardBook = ({ book }: Props) => {
       onClick={openUserBook}
       className={`${listForm ? styles.wrapper : styles.listContainer}`}
     >
-      <img className={styles.cardImage} src={book.image[0] ? imageBook : noImage} alt='background' />
+      <img className={styles.cardImage} src={`${book.image ? host + book.image.url : noImage}`} alt='book_image' />
 
       <div className={styles.ratingWrapper}>
         {listForm && <Rating book={book} />}
         <h4 className={styles.title}>{book.title}</h4>
-        <p className={styles.author}>{book.author}</p>
+        {book.authors.length &&
+          book.authors.map((author, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <p key={index} className={styles.author}>
+              {author}
+            </p>
+          ))}
         <div className={styles.btnContainer}>
-          <CardButton reserve={book.reserve} data={book.data} />
+          <CardButton booking={book.booking} />
         </div>
         <div className={styles.listForm}>
           <div className={styles.ratingContainer}>
             <Rating book={book} />
           </div>
           <div className={styles.btnContainer}>
-            <CardButton reserve={book.reserve} data={book.data} />
+            <CardButton booking={book.booking} />
           </div>
         </div>
       </div>
