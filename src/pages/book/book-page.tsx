@@ -57,7 +57,6 @@ export const BookPage = () => {
                       {author}
                     </p>
                   ))}
-                {/* <p className={styles.author}>{book.choiceBook}</p> */}
                 <div className={styles.cardBtn}>
                   {book.choiceBook && <CardButton booking={book.choiceBook?.booking} />}
                 </div>
@@ -136,7 +135,7 @@ export const BookPage = () => {
             </div>
             <p className={`${styles.titleReviews} ${isReviews ? styles.line : ''}`}>
               Отзывы <span>1</span>
-              <div
+              <span
                 role='presentation'
                 className={`${isReviews ? styles.dropDown : ''} ${styles.dropUp} `}
                 data-test-id='button-hide-reviews'

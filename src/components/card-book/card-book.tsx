@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
-// import imageBook from '../../assets/img/imageBook.png';
 import noImage from '../../assets/img/NoImageBook.png';
 import { host } from '../../constans/books-api';
 import { BookItem, ChoiceBook } from '../../constans/interfaces';
@@ -29,11 +28,12 @@ export const CardBook = ({ book }: Props) => {
       onClick={openUserBook}
       className={`${listForm ? styles.wrapper : styles.listContainer}`}
     >
-      <img className={styles.cardImage} src={`${book.image ? host + book.image.url : noImage}`} alt='book_image' />
-
+      <div className={styles.imgContainer}>
+        <img className={styles.cardImage} src={`${book.image ? host + book.image.url : noImage}`} alt='book_image' />
+      </div>
       <div className={styles.ratingWrapper}>
         {listForm && <Rating book={book} />}
-        <h4 className={styles.title}>{book.title}</h4>
+        <h4 className={`${listForm ? styles.title : styles.titleList}`}>{book.title}</h4>
         {book.authors.length &&
           book.authors.map((author, index) => (
             // eslint-disable-next-line react/no-array-index-key

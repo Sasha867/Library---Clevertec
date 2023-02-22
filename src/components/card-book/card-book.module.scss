@@ -8,15 +8,20 @@
     0px 1px 5px rgba(191, 196, 201, 0.24);
   border-radius: 10px;
   padding: 8px 8px 16px 8px;
-  .cardImage {
-    cursor: pointer;
-    height: 242px;
-    max-width: 100% ;
-    margin-bottom: 16px;
-  }
-  @media (max-width: 320px) {
-    max-width: 100%;
+  .imgContainer {
+    display: flex;
+    width: 100%;
     justify-content: center;
+    .cardImage {
+      cursor: pointer;
+      height: 242px;
+      max-width: 100%;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 320px) {
+      max-width: 100%;
+      justify-content: center;
+    }
   }
 }
 
@@ -30,14 +35,24 @@
   border-radius: 10px;
   padding: 24px 24px 24px 16px;
   height: 218px;
-  .cardImage {
-    width: 120px;
-    height: 170px;
+  .imgContainer {
+    display: flex;
+    max-width: 120px;
+    width: 100%;
     margin-right: 16px;
     @media (max-width: 500px) {
       height: 100px;
-      width: 70px;
+      width: px;
       margin-right: 8px;
+    }
+    .cardImage {
+      width: 120px;
+      height: 170px;
+      @media (max-width: 500px) {
+        height: 100px;
+        width: 70px;
+        margin-right: 8px;
+      }
     }
   }
   .ratingWrapper {
@@ -115,6 +130,15 @@
   }
   .rating {
     display: flex;
+  }
+}
+
+.titleList {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 32px;
+  @media (max-width: 768px) {
+    font-size: 24px;
   }
 }
 
