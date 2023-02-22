@@ -1,0 +1,45 @@
+.wrapper {
+  max-width: 100%;
+  background: rgba(54, 54, 54, 0.3);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.loader {
+  width: 68.75px;
+  height: 68.75px;
+  background-image: url('../../assets/img/loader.png');
+  background-repeat: no-repeat;
+  animation: 1s linear 0s normal none infinite running loader;
+  @keyframes loader {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @media (max-width: 768px) {
+    width: 44px;
+    height: 44px;
+    background-image: url('../../assets/img/loader_44px.png');
+  }
+  @media (max-width: 320px) {
+    width: 22px;
+    height: 22px;
+    background-image: url('../../assets/img/loader_22px.png');
+  }
+}

@@ -1,0 +1,154 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  height: 470px;
+  max-width: 190px;
+  width: 100%;
+  box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18),
+    0px 1px 5px rgba(191, 196, 201, 0.24);
+  border-radius: 10px;
+  padding: 8px 8px 16px 8px;
+  .imgContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    .cardImage {
+      cursor: pointer;
+      height: 242px;
+      max-width: 100%;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 320px) {
+      max-width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+.listContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  width: 100%;
+  box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18),
+    0px 1px 5px rgba(191, 196, 201, 0.24);
+  border-radius: 10px;
+  padding: 24px 24px 24px 16px;
+  height: 218px;
+  .imgContainer {
+    display: flex;
+    max-width: 120px;
+    width: 100%;
+    margin-right: 16px;
+    @media (max-width: 500px) {
+      height: 100px;
+      width: px;
+      margin-right: 8px;
+    }
+    .cardImage {
+      width: 120px;
+      height: 170px;
+      @media (max-width: 500px) {
+        height: 100px;
+        width: 70px;
+        margin-right: 8px;
+      }
+    }
+  }
+  .ratingWrapper {
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: auto;
+  }
+  .listForm {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;
+    justify-content: space-between;
+    .ratingContainer {
+      display: flex;
+      span {
+        margin-bottom: 0;
+      }
+    }
+    .btnContainer {
+      display: block;
+      max-width: 176px;
+    }
+    @media (max-width: 630px) {
+      flex-direction: column;
+      margin-top: 0px;
+      .ratingContainer {
+        margin-bottom: 16px;
+        margin-right: auto;
+      }
+    }
+  }
+  .btnContainer {
+    display: none;
+  }
+
+  .ratingContainer {
+    display: none;
+  }
+  .author {
+    margin: 16px 0;
+    @media (max-width: 630px) {
+      margin: 3px 0px;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+}
+
+.listForm {
+  display: none;
+}
+.btnContainer {
+  display: block;
+}
+.ratingWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 42%;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.ratingContainer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 144px;
+  width: 100%;
+  span {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #a7a7a7;
+    margin-bottom: 16px;
+  }
+  .rating {
+    display: flex;
+  }
+}
+
+.titleList {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 32px;
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  max-height: 54px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
